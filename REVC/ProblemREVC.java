@@ -1,24 +1,29 @@
+public class ReverseComplement {
+    public static void main(String[] args) {
 
-/**
- * Write a description of class ProblemRNA here.
- *
- * @author (your name)
- * @version (a version number or a date)
- */
-public class ProblemREVC {
-    public static void main() {
-        // replace this string with the one from Project Rosalind
-        final String inputDNA = "AAAACCCGGT";
-        final String output = reverseComplement(inputDNA);
-        // you can copy and paste from the terminal window into 
-        //   Project Rosalind to check your answer
-        System.out.println(output);
+        // Given DNA dataset
+        String dna =
+            "CGTGGGTCTAAGTCTGCGTCCAACACGGCGCAGGCGTGTTCGGATTCATGTGGCAACCAGAACTCCGGCCCAGAGGCTAGAAACTTCGAATAGAAACCCCCATATCGGATAGTACTTTCGAAGCTAGTAGCGCACAGAGCGGGGATGCGCATTCACCAATGCAGTCCGCTTCACTACCGGCACGGAATACACTTACTCAGTTTGGTCCCCAGCCGACTCCGGGTTATTGTTAAGTCATACACGTAAACGTGCTTCGTATGACTTGAGAACAACAAATTCTATCTGTCGAAGAAGCTTTCATACGCCGTTGCTCGGCTGTAGTGGCAACTGAACGTAACGCCATGTTTCCGCCGAGCTTGACCGGGCGTCGTGTTATTGTTTAATACAAGCACTTTACTTAGAACACCAAAAGGCATCCTAGCCTAGTGGATAGACCGAGTACCCAACAAAGCCAAACGTCCAAAATATCTGCTACATGCTACGACAACATCAGACATTAGCCGACTTCGCCGGTGTCGGTAGGTAAGACACGCTCCACATATCCCCGGGTTACGCATGACTGAGGCGTCCCGATTAGACGCCCGGTCTGTCGCCCTCGATTTCATTCTGAAGACCGAATAATTCTCCGCTACATGAGGTGAGCCCGTATCTTTTAGTGTGGGGCACCGCGGTGCCGGCCGTCCTATGACCCCGAGGTCGATAGGGCAGGGTTGAGCACTGCATTTTCTAGCCACGGGTCATACATAGGGCGCCCGCCGGCATACCCCTTCTCTATGATTGCCAACAAAAAGCAGTCAGCGCGCACTTGCCATAGTTCTTCTCCTACTCTAGACACGCCACATACAGTGGACATGGTGCGCTTTTGTCG";
+
+        StringBuilder reverseComplement = new StringBuilder();
+
+        // Traverse the DNA string backwards
+        for (int i = dna.length() - 1; i >= 0; i--) {
+            char base = dna.charAt(i);
+
+            // Append complementary base
+            if (base == 'A') {
+                reverseComplement.append('T');
+            } else if (base == 'T') {
+                reverseComplement.append('A');
+            } else if (base == 'C') {
+                reverseComplement.append('G');
+            } else if (base == 'G') {
+                reverseComplement.append('C');
+            }
+        }
+
+        // Output the reverse complement
+        System.out.println(reverseComplement.toString());
     }
-        
-    // This should take the given string and return a String 
-    //   where As and Ts are swapped, Cs and Gs are swapped, 
-    //   and is reversed. 
-    private static String reverseComplement(String dnaString) {
-        return "ACCGGGTTTT";
-    }    
 }
